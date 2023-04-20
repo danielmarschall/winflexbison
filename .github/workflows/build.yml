@@ -1,0 +1,22 @@
+name: "Build"
+
+on: workflow_dispatch
+
+env:
+  FLEX_VERSION: 2.6.4
+  BISON_VERSION: 3.8.2
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Run build
+      run: perl build.pl
+    - name: Upload artiacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}
+        path: out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}
+        retention-days: 1
