@@ -12,16 +12,20 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
     - name: Run build
       run: perl build.pl
+
     - name: Remove existing ZIP file if it exists
       run: |
         if (Test-Path "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip") {
           Remove-Item "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip"
         }
+
     - name: Create ZIP file
       run: |
         powershell Compress-Archive -Path "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}" -DestinationPath "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip"
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -29,8 +33,9 @@ jobs:
         path: out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip
         retention-days: 1
         overwrite: true
+
     - name: Publish Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v1.2.0
       with:
         prerelease: true
         tag_name: nightly
