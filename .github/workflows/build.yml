@@ -14,9 +14,13 @@ jobs:
       uses: actions/checkout@v4
     - name: Run build
       run: perl build.pl
+    - name: Remove existing ZIP file if it exists
+      run: |
+        if (Test-Path "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip") {
+          Remove-Item "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip"
+        }
     - name: Create ZIP file
       run: |
-        mkdir -p out
         powershell Compress-Archive -Path "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}" -DestinationPath "out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip"
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
