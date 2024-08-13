@@ -417,7 +417,7 @@ typedef int yytype_uint16;
 #  define YYPTRDIFF_T ptrdiff_t
 #  define YYPTRDIFF_MAXIMUM PTRDIFF_MAX
 # else
-#  ifdef _Win64
+#  ifdef _WIN64
 #   define YYPTRDIFF_T long long
 #   define YYPTRDIFF_MAXIMUM LLONG_MAX
 #  else
