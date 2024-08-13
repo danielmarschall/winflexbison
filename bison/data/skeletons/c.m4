@@ -305,8 +305,13 @@ m4_define([b4_sizes_types_define],
 #  define YYPTRDIFF_T ptrdiff_t
 #  define YYPTRDIFF_MAXIMUM PTRDIFF_MAX
 # else
-#  define YYPTRDIFF_T long
-#  define YYPTRDIFF_MAXIMUM LONG_MAX
+#  ifdef _Win64
+#   define YYPTRDIFF_T long long
+#   define YYPTRDIFF_MAXIMUM LLONG_MAX
+#  else
+#   define YYPTRDIFF_T long
+#   define YYPTRDIFF_MAXIMUM LONG_MAX
+#  endif
 # endif
 #endif
 
