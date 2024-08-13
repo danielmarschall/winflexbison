@@ -35,7 +35,7 @@ jobs:
         overwrite: true
 
     - name: Publish Release
-      uses: softprops/action-gh-release@v1.2.0
+      uses: softprops/action-gh-release@v2
       with:
         prerelease: true
         tag_name: nightly
