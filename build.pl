@@ -72,8 +72,8 @@ sub make_install {
 
   my $bin_dir = catfile($root_dir, "bin", "Release");
   dircopy(catfile($bin_dir, "data"), catfile($install_dir, "data")) or die("$!");
-  fcopy(catfile($bin_dir, "win_flex.exe"), catfile($install_dir, "flex.exe")) or die("$!");
-  fcopy(catfile($bin_dir, "win_bison.exe"), catfile($install_dir, "bison.exe")) or die("$!");
+  fcopy(catfile($bin_dir, "win_flex.exe"), catfile($install_dir, "win_flex.exe")) or die("$!");
+  fcopy(catfile($bin_dir, "win_bison.exe"), catfile($install_dir, "win_bison.exe")) or die("$!");
   fcopy(catfile($root_dir, "COPYING"), catfile($install_dir, "COPYING")) or die("$!");
   fcopy(catfile($root_dir, "README.md"), catfile($install_dir, "README.md")) or die("$!");
 
