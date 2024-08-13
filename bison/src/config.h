@@ -1,3 +1,6 @@
+#ifndef BISON_CONFIG_H_
+#define BISON_CONFIG_H_ 1
+
 #define PACKAGE_BUGREPORT "https://github.com/lexxmark/winflexbison/issues"
 #define VERSION "3.8.2"
 #define PACKAGE_COPYRIGHT_YEAR 2020
@@ -20,3 +23,5 @@ extern char* _stpcpy(char *yydest, const char *yysrc);
 extern int strverscmp(const char* s1, const char* s2);
 
 extern int obstack_printf(struct obstack* obs, const char* format, ...);
+
+#endif /* !BISON_CONFIG_H_ */
