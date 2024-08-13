@@ -27,4 +27,4 @@ jobs:
         prerelease: true
         tag_name: nightly
         files: |
-          ./out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip
+          out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}
