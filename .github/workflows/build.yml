@@ -21,3 +21,10 @@ jobs:
         path: out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}
         retention-days: 1
         overwrite: true
+    - name: Publish Release
+      uses: softprops/action-gh-release@v1
+      with:
+        prerelease: true
+        tag_name: nightly
+        files: |
+          ./out/flex-${{ env.FLEX_VERSION }}_bison-${{ env.BISON_VERSION }}.zip
